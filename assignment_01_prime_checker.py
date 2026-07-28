@@ -35,3 +35,15 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+def is_a_prime(x):
+    #Numbers less than 2 are never prime
+    if x < 2: 
+        return f"{x} cannot be a prime number."
+    else:
+        # Check every possible divisor from 2 up to x - 1
+        for i in range(2,x):
+            if x % i ==0:
+                # Found divisor so not prime
+                return f"{x} is NOT a prime number."
+        # No divisors found so prime
+        return f"{x} is prime number."
