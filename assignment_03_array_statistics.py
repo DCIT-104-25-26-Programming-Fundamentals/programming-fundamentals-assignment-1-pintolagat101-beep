@@ -39,35 +39,44 @@
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
 
+# TASK: Array Statistics Calculator
+
+def get_numbers(n):
+    numbers = []
+    count = 1
+    while count <= n:
+        value = int(input("Enter number " + str(count) + ": "))
+        numbers.append(value)
+        count = count + 1
+    return numbers
+
+
 def calculate_sum(numbers):
     total = 0
-    for i in range(len(numbers)):
-        total = total + numbers[i]
+    for num in numbers:
+        total = total + num
     return total
 
 
 def calculate_average(numbers):
-    total = 0
-    for i in range(len(numbers)):
-        total = total + numbers[i]
-    average = total / len(numbers)
-    return average
+    total = calculate_sum(numbers)
+    return total / len(numbers)
 
 
 def calculate_maximum(numbers):
-    maximum = numbers[0]
-    for i in range(len(numbers)):
-        if numbers[i] > maximum:
-            maximum = numbers[i]
-    return maximum
+    largest = numbers[0]
+    for num in numbers:
+        if num > largest:
+            largest = num
+    return largest
 
 
 def calculate_minimum(numbers):
-    minimum = numbers[0]
-    for i in range(len(numbers)):
-        if numbers[i] < minimum:
-            minimum = numbers[i]
-    return minimum
+    smallest = numbers[0]
+    for num in numbers:
+        if num < smallest:
+            smallest = num
+    return smallest
 
 
 def main():
@@ -77,24 +86,19 @@ def main():
         print("Error: N must be a positive integer.")
         return
 
-    numbers = []
-    count = 1
-    while count <= n:
-        value = int(input("Enter number " + str(count) + ": "))
-        numbers.append(value)
-        count = count + 1
+    numbers = get_numbers(n)
 
-    total_sum = calculate_sum(numbers)
+    total = calculate_sum(numbers)
     average = calculate_average(numbers)
     maximum = calculate_maximum(numbers)
     minimum = calculate_minimum(numbers)
 
     print("")
     print("Results:")
-    print("Sum:     ", total_sum)
-    print("Average: ", average)
-    print("Maximum: ", maximum)
-    print("Minimum: ", minimum)
+    print("Sum:    ", total)
+    print("Average:", average)
+    print("Maximum:", maximum)
+    print("Minimum:", minimum)
 
 
 main()
