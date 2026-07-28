@@ -78,4 +78,70 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+# PROGRAMMING FUNDAMENTALS - Assignment 7
+# TASK: Console-Based To-Do List Application
+
+tasks = []
+
+
+def add_task():
+    task = input("Enter task: ")
+    tasks.append(task)
+    print("Task added:", '"' + task + '"')
+
+
+def view_tasks():
+    if len(tasks) == 0:
+        print("Your list is empty. Add a task to get started!")
+        return
+    print("Your Tasks:")
+    count = 1
+    for task in tasks:
+        print(str(count) + ".", task)
+        count = count + 1
+
+
+def delete_task():
+    view_tasks()
+    if len(tasks) == 0:
+        return
+    task_number = int(input("Enter task number to delete: "))
+    if task_number < 1 or task_number > len(tasks):
+        print("Error: Invalid task number.")
+        return
+    removed_task = tasks[task_number - 1]
+    tasks.pop(task_number - 1)
+    print("Task", '"' + removed_task + '"', "has been removed.")
+
+
+def show_menu():
+    print("\n=============================")
+    print("     TO-DO LIST MENU")
+    print("=============================")
+    print("1. Add task")
+    print("2. View tasks")
+    print("3. Delete task")
+    print("4. Quit")
+
+
+def main():
+    running = True
+    while running:
+        show_menu()
+        choice = input("Enter your choice (1-4): ")
+
+        if choice == "1":
+            add_task()
+        elif choice == "2":
+            view_tasks()
+        elif choice == "3":
+            delete_task()
+        elif choice == "4":
+            print("Goodbye!")
+            running = False
+        else:
+            print("Error: Invalid choice. Please enter 1-4.")
+
+
+main()
 
