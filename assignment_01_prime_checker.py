@@ -47,3 +47,6 @@ def is_a_prime(x):
                 return f"{x} is NOT a prime number."
         # No divisors found so prime
         return f"{x} is prime number."
+    
+user_input= int(input("Enter a number: ")).strip()
+print(is_a_prime(user_input))
